@@ -1,0 +1,32 @@
+CREATE TABLE `sys`.`depatment` (
+  `iddepatment` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`iddepatment`));
+  
+  CREATE TABLE `sys`.`jobtitle` (
+  `idjobTitle` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idjobTitle`));
+  
+  CREATE TABLE `sys`.`info` (
+  `idinfo` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `start_date` DATE ,
+  `salary` INT NOT NULL,
+  `iddepatment` INT NOT NULL,
+  `idjobTitle` INT NOT NULL,
+  `boss` INT NULL ,
+  PRIMARY KEY (`idinfo`));
+  
+  CREATE TABLE `sys`.`jobtitledate` (
+  `idjobTitleDate` INT NOT NULL AUTO_INCREMENT,
+  `idinfo` INT NOT NULL,
+  `start` DATE NOT NULL,
+  `end` DATE NULL,
+  `salary` INT NULL,
+  PRIMARY KEY (`idjobTitleDate`));
+  
+ INSERT INTO sys.depatment(name) VALUES ('IT'),('Engeener'),('Finance');
+INSERT INTO sys.jobtitle(name) values('Senior'),('Engineer'),('Accountant');
+INSERT INTO sys.info(name,start_date,salary,iddepatment,idjobTitle,boss) VALUES ('Ivan','2001-11-15',545,1,1,NULL),('Artur','2005-11-15',500,2,2,1),('Ino','2001-01-15',545,3,3,1);
+
