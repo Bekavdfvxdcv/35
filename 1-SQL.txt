@@ -1,0 +1,41 @@
+CREATE TABLE authors (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  first_name VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO authors(name, first_name) VALUES ('John', 'Doe'), ('Alex', 'Clark'), ('John', 'Bezos'), ('Tim', 'Cook');
+
+CREATE TABLE works (
+  id INT NOT NULL AUTO_INCREMENT,
+  id_author INT NOT NULL,
+  name VARCHAR(45) NOT NULL,
+  type VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id)
+);
+INSERT INTO works(name, id_author,type) VALUES ('Mobidick', 1, 'detictive'), ('HarrPoter', 2,'roman'), ('JohnIstory', 3,'horror'), ('Focus', 4, 'mistic');
+
+CREATE TABLE authorroman (
+  id_authorRoman INT NOT NULL AUTO_INCREMENT,
+  idRoman INT NOT NULL,
+  idAuthor INT NOT NULL,
+  PRIMARY KEY (id_authorRoman));
+  
+INSERT INTO authorroman(idRoman,idAuthor) VALUES (1,1), (2,2), (3,3), (4,4 );
+
+CREATE TABLE categories (
+   idCategories INT NOT NULL AUTO_INCREMENT,
+   name VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idCategories));
+  INSERT INTO categories(name) VALUES ('Sebiline'), ('pies'), ('mainst'), ('insrs' );
+  
+  CREATE TABLE workscatagory (
+  idworksCatagory INT NOT NULL AUTO_INCREMENT,
+  id_works INT NOT NULL,
+  id_category INT NOT NULL,
+  PRIMARY KEY (idworksCatagory));
+   INSERT INTO workscatagory (id_works,id_category) VALUES (1,1), (2,2), (3,3), (4,4 );
+
+SELECT * FROM works, authors
+WHERE works.id_author = authors.id;
